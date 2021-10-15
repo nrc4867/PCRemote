@@ -11,8 +11,8 @@
     <div id="login-banner"></div>
     <div>
       <label>Username: <input type="text" id="login-user" class="username" name="username"/></label>
-      <label>Password: <input type="text" id="login-pass" class="password" name="password"/></label>
-      <button onclick="login()">Create Account</button>
+      <label>Password: <input type="password" id="login-pass" class="password" name="password"/></label>
+      <button onclick="login()">Login</button>
     </div>
   </div>
 
@@ -24,7 +24,7 @@
     <div id="create-banner"></div>
     <div>
       <label>Username: <input type="text" id="new-user" class="username" name="username" th:disabled="${new_accounts_enabled} == false"/></label>
-      <label>Password: <input type="text" id="new-pass" class="password" name="password" th:disabled="${new_accounts_enabled} == false"/></label>
+      <label>Password: <input type="password" id="new-pass" class="password" name="password" th:disabled="${new_accounts_enabled} == false"/></label>
       <button th:disabled="${new_accounts_enabled} == false" onclick="createAccount()">Create Account</button>
     </div>
   </div>

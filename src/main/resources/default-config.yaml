@@ -2,7 +2,7 @@ database:
   username: default-user
   password: default-password
   jdbcUrl: jdbc:mysql://host:port/database?args
-  maximumPoolSize: 10
+  maximumPoolSize: 1
   driverClassName: com.mysql.cj.jdbc.Driver
 
 ktor:

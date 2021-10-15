@@ -48,6 +48,7 @@ dependencies {
 
 dependencies {
     implementation("io.github.microutils:kotlin-logging-jvm:2.0.8")
+    implementation("com.profesorfalken:jPowerShell:3.1.1")
 }
 
 /**
