@@ -6,6 +6,7 @@ import dev.chieppa.util.LOGIN
 import dev.chieppa.util.LOGIN_PASSWORD
 import dev.chieppa.util.LOGIN_USERNAME
 import dev.chieppa.controller.validateSession
+import dev.chieppa.util.HOME
 import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.sessions.*
@@ -40,7 +41,7 @@ fun Application.configureSecurity() {
         }
         session<UserSession>(AUTH_SESSION) {
             validate { validateSession(it) }
-            challenge(LOGIN)
+            challenge(HOME)
         }
     }
 }

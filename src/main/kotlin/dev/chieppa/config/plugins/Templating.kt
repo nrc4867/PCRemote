@@ -16,6 +16,8 @@ fun Application.configureTemplating() {
             prefix = "templates/thymeleaf/"
             suffix = ".html"
             characterEncoding = "utf-8"
+            cacheTTLMs = 0
+            isCacheable = false
         })
     }
 }

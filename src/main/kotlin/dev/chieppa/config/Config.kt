@@ -21,23 +21,21 @@ data class KtorServerConfig(
     val secureCookies: Boolean
 )
 
-data class Users(val pepper: Masked, val sessionDuration: Long, val enableNewAccounts, val minPasswordLength: Int, val maxPasswordLength: Int)
+data class Users(val pepper: Masked, val sessionDuration: Long, val enableNewAccounts: Boolean, val minPasswordLength: Int, val maxPasswordLength: Int)
 
 data class Bcrypt(val saltrounds: Int)
 
+data class Monitor(val keepOffRefresh: Int)
+
 data class Configuration(
-    val profile: PROFILE,
     val database: DatabaseConfig,
     val ktor: KtorServerConfig,
     val users: Users,
-    val bcrypt: Bcrypt
+    val bcrypt: Bcrypt,
+    val monitor: Monitor
 )
 
 data class ArgsConfiguration(val config: String)
-
-enum class PROFILE {
-    PRODUCTION, DEV
-}
 
 private var args: Array<String> = arrayOf()
 val config: Configuration by lazy {
@@ -52,7 +50,7 @@ val config: Configuration by lazy {
 
     ConfigLoader.Builder()
         .addSource(PropertySource.path(Path(argsParser.getOrElse { ArgsConfiguration("") }.config), true))
-        .addSource(PropertySource.path(Path("./default-config.yaml")))
+        .addSource(PropertySource.resource("/default-config.yaml"))
         .build()
         .loadConfigOrThrow()
 }

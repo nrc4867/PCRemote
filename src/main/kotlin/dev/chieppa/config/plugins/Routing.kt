@@ -13,10 +13,10 @@ import mu.KotlinLogging
 fun Application.configureRouting() {
     routing {
         install(StatusPages) {
-            exception<AuthenticationException> { cause ->
+            exception<AuthenticationException> {
                 call.respondRedirect(HOME)
             }
-            exception<AuthorizationException> { cause ->
+            exception<AuthorizationException> {
                 call.respondRedirect(HOME)
             }
         }
@@ -29,12 +29,6 @@ fun Application.configureRouting() {
             files("scripts")
             files("images")
             files("stylesheets")
-        }
-        authenticate(ADMIN_SESSION) {
-            static("assets/admin") {
-                resources(resourcePackage = "/assets/admin")
-                files("scripts")
-            }
         }
     }
 }

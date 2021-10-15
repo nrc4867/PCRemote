@@ -1,5 +1,9 @@
 package dev.chieppa.util
 
+import dev.chieppa.config.config
+import org.mindrot.jbcrypt.BCrypt
+import java.security.MessageDigest
+
 private val sha256Digest = MessageDigest.getInstance("SHA-256")
 
 fun hashLongPassword(password: String): String =

@@ -1,4 +1,4 @@
-package dev.chieppa.config.model.table
+package dev.chieppa.model.table
 
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.`java-time`.datetime

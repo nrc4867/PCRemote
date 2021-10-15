@@ -19,3 +19,6 @@ users:
   enableNewAccounts: false
   minPasswordLength: 8
   maxPasswordLength: 100
+
+monitor:
+  keepOffRefresh: 10000

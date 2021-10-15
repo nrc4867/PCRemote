@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>PC Control</title>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <div>
+    <h2>Login:</h2>
+    <div id="login-banner"></div>
+    <div>
+      <label>Username: <input type="text" id="login-user" class="username" name="username"/></label>
+      <label>Password: <input type="text" id="login-pass" class="password" name="password"/></label>
+      <button onclick="login()">Create Account</button>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!--/*@thymesVar id="new_accounts_enabled" type="java.lang.Boolean"*/-->
+  <div th:style="${new_accounts_enabled} ? '' : 'display: none'">
+    <h2>Create Acoount:</h2>
+    <div id="create-banner"></div>
+    <div>
+      <label>Username: <input type="text" id="new-user" class="username" name="username" th:disabled="${new_accounts_enabled} == false"/></label>
+      <label>Password: <input type="text" id="new-pass" class="password" name="password" th:disabled="${new_accounts_enabled} == false"/></label>
+      <button th:disabled="${new_accounts_enabled} == false" onclick="createAccount()">Create Account</button>
+    </div>
+  </div>
+</body>
+<script src="/assets/scripts/login.js"></script>
+<script src="/assets/scripts/utils.js"></script>
+</html>

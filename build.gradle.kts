@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.5.21"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.5.21"
     application
 }
 
@@ -19,11 +20,11 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "13"
+    kotlinOptions.jvmTarget = "11"
 }
 
 application {
-    mainClassName = "ServerKt"
+
 }
 
 val ktor_version: String by project

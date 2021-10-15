@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Control</title>
+</head>
+<body>
+<div class="banner">
+  <h1>Welcome <!--/*@thymesVar id="username" type="java.lang.String"*/-->
+    <span th:text="${username}"></span></h1>
+  <br/>
+  <a href="/logout">Logout</a>
+</div>
+<hr/>
+<h2>Controls:</h2>
+<!--/*@thymesVar id="controls" type=""*/-->
+<!--/*@thymesVar id="control" type="java.lang.String"*/-->
+<div th:each="control : ${controls}" th:id="|control-${control}|">
+  <p th:replace="|controls/${control}.html| :: control">Fragment Replacement Here</p>
+</div>
+</body>
+<script src="/assets/scripts/utils.js"></script>
+</html>
