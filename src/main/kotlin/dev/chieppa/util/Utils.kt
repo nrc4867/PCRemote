@@ -2,6 +2,7 @@ package dev.chieppa.util
 
 import dev.chieppa.config.config
 import org.mindrot.jbcrypt.BCrypt
+import java.io.File
 import java.security.MessageDigest
 
 private val sha256Digest = MessageDigest.getInstance("SHA-256")
@@ -42,3 +43,5 @@ fun validatePassword(password: String): Boolean {
     if (!password.contains(Regex("\\W"))) return false
     return true
 }
+
+fun List<String>.createPath(): String = this.joinToString("\\")

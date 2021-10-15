@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Monitor Control</title>
+</head>
+<body>
+<div th:fragment="control" class="control">
+  <h3>Services</h3>
+  <div id="services-banner"></div>
+  <input type="button" onclick="startSSH()" value="Start SSH"/>
+  <script src="/assets/scripts/services.js"></script>
+</div>
+</body>
+</html>

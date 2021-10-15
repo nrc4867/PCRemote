@@ -28,7 +28,7 @@ import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger { }
 
-fun Application.createHome() {
+fun Application.createHomeRoute() {
     routing {
         get(HOME) {
             if (call.sessions.get<UserSession>() != null) {
@@ -116,7 +116,7 @@ fun Application.createControlRoute() {
                         "control",
                         mapOf(
                             "username" to user.username,
-                            "controls" to listOf("monitor"),
+                            "controls" to listOf("monitor", "services", "shutdown"),
                             "keepOnState" to getKeepOff()
                         )
                     )
@@ -135,7 +135,7 @@ fun Application.createMonitorControlApi() {
         } else {
             disableKeepOff()
         }
-        call.respond(jsonFormat.encodeToJsonElement(MonitorStateChanged(state= MonitorState(getKeepOff()))))
+        call.respond(jsonFormat.encodeToJsonElement(MonitorStateChanged(state = MonitorState(getKeepOff()))))
     }
 
     routing {
@@ -146,12 +146,29 @@ fun Application.createMonitorControlApi() {
 
                 logger.info("'${session.username}' called monitor with '$command'")
 
-                when(command) {
+                when (command) {
                     "turnoff" -> {
                         turnOffMonitor()
                         call.respond(SuccessResponse())
                     }
                     "keepoff" -> changeMonitorState(call)
+                }
+            }
+        }
+    }
+}
+
+fun Application.createServicesControlApi() {
+    routing {
+        authenticate(AUTH_SESSION) {
+            post(SERVICES_CONTROL) {
+                val session = call.sessions.get<UserSession>()!!
+                val command = call.parameters["command"]
+
+                logger.info("'${session.username}' called services with '$command'")
+
+                when (command) {
+                    "startSSH" -> call.respond(startSSH())
                 }
             }
         }

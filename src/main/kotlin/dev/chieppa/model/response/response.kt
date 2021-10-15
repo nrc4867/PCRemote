@@ -15,6 +15,7 @@ enum class ResponseType {
     MESSAGE,
 
     MONITOR_STATE,
+    SERVICE,
 }
 
 @Serializable
@@ -44,6 +45,12 @@ data class MonitorStateChanged(
     override val type: ResponseType = ResponseType.MONITOR_STATE,
     val state: MonitorState
 ) : BasicResponse()
+
+@Serializable
+data class ServiceComplete(
+    override val type: ResponseType = ResponseType.SERVICE,
+    val exitCode: Int
+): BasicResponse()
 
 @Serializable
 data class ErrorResponse(

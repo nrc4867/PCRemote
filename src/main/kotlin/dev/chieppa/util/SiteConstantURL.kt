@@ -10,3 +10,4 @@ const val CREATE_ACCOUNT = "/createaccount"
 const val PC_CONTROL = "/control"
 
 const val MONITOR_CONTROL = "/api/monitor/{command}"
+const val SERVICES_CONTROL = "/api/services/{command}"

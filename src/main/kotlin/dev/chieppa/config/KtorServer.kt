@@ -20,7 +20,7 @@ fun startServer() {
         configureTemplating()
         configureSerialization()
 
-        createHome()
+        createHomeRoute()
         createLoginRoute()
         if (config.users.enableNewAccounts) {
             createUserRoute()
@@ -28,6 +28,7 @@ fun startServer() {
 
         createControlRoute()
         createMonitorControlApi()
+        createServicesControlApi()
 
     }.start(wait = true)
 }
