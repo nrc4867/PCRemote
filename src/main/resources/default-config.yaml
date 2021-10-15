@@ -1,0 +1,21 @@
+database:
+  username: default-user
+  password: default-password
+  jdbcUrl: jdbc:mysql://host:port/database?args
+  maximumPoolSize: 10
+  driverClassName: com.mysql.cj.jdbc.Driver
+
+ktor:
+  port: 3000
+  host: 0.0.0.0
+  secureCookies: true
+
+bcrypt:
+  saltrounds: 10
+
+users:
+  pepper: 9c7b7e8691f0966fd88b8296f6e5615de44c95ce0ad0abce6d08aab7ad6284f670575ed660d1ee326b9f1b5f2e94da633e683c58ed79b6d687d6af8c79e4e834
+  sessionDuration: 3600
+  enableNewAccounts: false
+  minPasswordLength: 8
+  maxPasswordLength: 100
