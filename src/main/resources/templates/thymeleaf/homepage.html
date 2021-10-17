@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
   <title>PC Control</title>
+  <meta th:replace="templates/deafault-head.html :: headerfiles">
+  <link rel="stylesheet" href="/assets/stylesheets/homepage.css">
 </head>
 <body>
   <h1>Welcome</h1>
   <div>
     <h2>Login:</h2>
-    <div id="login-banner"></div>
+    <div id="login-banner" class="form"></div>
     <div>
       <label>Username: <input type="text" id="login-user" class="username" name="username"/></label>
       <label>Password: <input type="password" id="login-pass" class="password" name="password"/></label>
@@ -19,8 +20,8 @@
   <hr/>
 
   <!--/*@thymesVar id="new_accounts_enabled" type="java.lang.Boolean"*/-->
-  <div th:style="${new_accounts_enabled} ? '' : 'display: none'">
-    <h2>Create Acoount:</h2>
+  <div th:style="${new_accounts_enabled} ? '' : 'display: none'" class="form">
+    <h2>Create Account:</h2>
     <div id="create-banner"></div>
     <div>
       <label>Username: <input type="text" id="new-user" class="username" name="username" th:disabled="${new_accounts_enabled} == false"/></label>

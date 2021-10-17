@@ -1,0 +1,28 @@
+body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: cadetblue;
+    font-family: arial, serif;
+}
+
+div {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    border: lightblue 1px solid;
+    border-radius: 5px;
+    background-color: lightblue;
+    box-shadow: 0 0 3px lightblue;
+    font-size: 18px;
+    margin: 8px 8px 8px 8px;
+}
+
+input {
+    width: calc(100% - 8px);
+    justify-self:center;
+    margin: auto;
+}
+
+hr {
+    display: none;
+}
