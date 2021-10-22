@@ -12,8 +12,7 @@ fun startServer() {
     embeddedServer(
         Netty,
         port = config.ktor.port,
-        host = config.ktor.host,
-        watchPaths = listOf("resources")
+        host = config.ktor.host
     ) {
         configureSecurity()
         configureRouting()
