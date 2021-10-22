@@ -1,17 +1,26 @@
-function startSSH() {
-    postData('/api/services/startSSH', {}, function (status, json, ok) {
-        let banner = document.getElementById("services-banner")
-        banner.innerText = ""
+function serviceHandle(status, json, ok) {
+    let timestamp = document.getElementById("services_timestamp")
+    let exitCode = document.getElementById("services_exitcode")
+    let commandOut = document.getElementById("services_output")
+    clearText(timestamp)
+    clearText(exitCode)
+    clearText(commandOut)
 
-        switch (json.type) {
-            case "ERROR":
-                banner.innerText = datedMessage("Error " + json.error.message)
-                break
-            case "SERVICE":
-                banner.innerText = datedMessage("Service Responded With Exit Code: " + json.exitCode)
-                break
-            default:
-                console.log(json)
-        }
-    })
+    switch (json.type) {
+        case "ERROR":
+            timestamp.innerText = datedMessage("Error " + json.error.message)
+            break
+        case "SERVICE":
+            timestamp.innerText = "Completed At: " + datestamp()
+            exitCode.innerText = "Exit code: " + json["exitCode"]
+            commandOut.innerText = json["consoleOutput"]
+            unhide(timestamp)
+            unhide(exitCode)
+            unhide(commandOut)
+            break
+        default:
+            console.log(json)
+    }
 }
+
+document.getElementById("service_startSSH").onclick = () => postData('/api/services/startSSH', {}, serviceHandle)

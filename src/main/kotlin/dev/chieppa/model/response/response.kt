@@ -49,6 +49,7 @@ data class MonitorStateChanged(
 @Serializable
 data class ServiceComplete(
     override val type: ResponseType = ResponseType.SERVICE,
+    val consoleOutput: String,
     val exitCode: Int
 ): BasicResponse()
 

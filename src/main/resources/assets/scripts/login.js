@@ -1,7 +1,7 @@
 /**
  *
  */
-function login(submit) {
+function login() {
     let user = document.getElementById("login-user")
     let pass = document.getElementById("login-pass")
 
@@ -39,3 +39,6 @@ function createAccount() {
         }
     })
 }
+
+document.getElementById("login").onclick = () => login()
+document.getElementById("createAccount").onclick = () => createAccount()

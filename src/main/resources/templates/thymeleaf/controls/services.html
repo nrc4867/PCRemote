@@ -6,10 +6,18 @@
 </head>
 <body>
 <div th:fragment="control" class="control">
-  <h3>Services</h3>
-  <div id="services-banner"></div>
-  <input type="button" onclick="startSSH()" value="Start SSH"/>
-  <script src="/assets/scripts/services.js"></script>
+  <h3>Services
+    <span class="noselect collapseButton" data-closing="services_panel">[-]</span>
+  </h3>
+  <div id="services_panel" class="collapsable">
+    <div id="services-banner">
+      <div id="services_timestamp" class="hidden"></div>
+      <div id="services_exitcode" class="hidden"></div>
+      <pre id="services_output" class="hidden"></pre>
+    </div>
+    <input type="button" id="service_startSSH" class="button" value="Start SSH"/>
+    <script src="/assets/scripts/services.js"></script>
+  </div>
 </div>
 </body>
 </html>

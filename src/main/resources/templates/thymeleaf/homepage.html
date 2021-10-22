@@ -11,22 +11,22 @@
     <h2>Login:</h2>
     <div id="login-banner" class="form"></div>
     <div>
-      <label>Username: <input type="text" id="login-user" class="username" name="username"/></label>
-      <label>Password: <input type="password" id="login-pass" class="password" name="password"/></label>
-      <button onclick="login()">Login</button>
+      <label>Username: <input type="text" id="login-user" class="username button" name="username"/></label>
+      <label>Password: <input type="password" id="login-pass" class="password button" name="password"/></label>
+      <button id="login" class="button">Login</button>
     </div>
   </div>
 
   <hr/>
 
   <!--/*@thymesVar id="new_accounts_enabled" type="java.lang.Boolean"*/-->
-  <div th:style="${new_accounts_enabled} ? '' : 'display: none'" class="form">
+  <div th:class="${new_accounts_enabled} ? '' : 'hidden'" class="form">
     <h2>Create Account:</h2>
     <div id="create-banner"></div>
     <div>
-      <label>Username: <input type="text" id="new-user" class="username" name="username" th:disabled="${new_accounts_enabled} == false"/></label>
-      <label>Password: <input type="password" id="new-pass" class="password" name="password" th:disabled="${new_accounts_enabled} == false"/></label>
-      <button th:disabled="${new_accounts_enabled} == false" onclick="createAccount()">Create Account</button>
+      <label>Username: <input type="text" id="new-user" class="username" name="username button" th:disabled="${new_accounts_enabled} == false"/></label>
+      <label>Password: <input type="password" id="new-pass" class="password" name="password button" th:disabled="${new_accounts_enabled} == false"/></label>
+      <button th:disabled="${new_accounts_enabled} == false" id="createAccount" class="button">Create Account</button>
     </div>
   </div>
 </body>

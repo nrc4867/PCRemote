@@ -6,11 +6,16 @@
 </head>
 <body>
 <div th:fragment="control" class="control">
-  <h3>Power Control</h3>
-  <div id="shutdown-banner"></div>
-  <input type="button" onclick="logoff()" value="Logout"/>
-  <input type="button" onclick="restart()" value="Restart"/>
-  <input type="button" onclick="shutdown()" value="Shutdown"/>
+  <h3>Power Control <span class="noselect collapseButton" data-closing="shutdown_panel">[-]</span></h3>
+  <div id="shutdown_panel">
+    <div id="shutdown-banner"></div>
+    <div id="shutdown_buttons">
+      <input type="button" class="button shutdown_button" id="shutdown_lock" value="Lock"/>
+      <input type="button" class="button shutdown_button" id="shutdown_logout" value="Logout"/>
+      <input type="button" class="button shutdown_button" id="shutdown_restart" value="Restart"/>
+      <input type="button" class="button shutdown_button" id="shutdown_shutdown" value="Shutdown"/>
+    </div>
+  </div>
   <script src="/assets/scripts/power.js"></script>
 </div>
 </body>

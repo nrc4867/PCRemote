@@ -14,10 +14,11 @@ function turnOff() {
 /**
  * @param state {Element}
  */
-function keepOff(state) {
+function keepOff() {
+    let checkbox = document.getElementById("monitor-keepOff")
     let banner = document.getElementById("monitor-banner")
     banner.innerText = ""
-    postData('/api/monitor/keepoff', {"state": state.checked}, function (status, json, ok) {
+    postData('/api/monitor/keepoff', {"state": checkbox.checked}, function (status, json, ok) {
         switch (json.type) {
             case "ERROR":
                 banner.innerText = datedMessage("Monitor manually turned off")
@@ -33,3 +34,6 @@ function keepOff(state) {
 
 let monitor_checkbox = document.getElementById("monitor-keepOff")
 monitor_checkbox.checked = (monitor_checkbox.getAttribute("checkedstate") === "true")
+
+document.getElementById("monitor-keepOff").onclick = () => keepOff()
+document.getElementById("monitor_turnoff").onclick = () => turnOff()

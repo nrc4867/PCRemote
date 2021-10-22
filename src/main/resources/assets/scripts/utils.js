@@ -36,3 +36,47 @@ function formURL(base = "", parameters = {}) {
 function datedMessage(message) {
     return new Date().toDateString() + ": " + message
 }
+
+function datestamp() {
+    return new Date().toLocaleDateString(undefined, {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
+}
+
+/**
+ * @type element {Element}
+ */
+const clearText = element => {
+    element.innerText = ""
+};
+
+/**
+ * @type element {Element}
+ */
+const unhide = element => {
+    element.classList.remove("hidden")
+}
+
+/**
+ * @type element {Element}
+ */
+const hide = element => {
+    element.classList.add("hidden")
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
+    let collapseButtons = document.getElementsByClassName("collapseButton")
+    for(let i = 0; i < collapseButtons.length; i++) {
+        let button = collapseButtons.item(i)
+        button.onclick = () => {
+            let panel = document.getElementById(button.getAttribute("data-closing"))
+            if (button.classList.contains("close")) {
+                button.classList.remove("close")
+                button.innerHTML = "[-]"
+                unhide(panel)
+            } else {
+                button.classList.add("close")
+                button.innerHTML = "[+]"
+                hide(panel)
+            }
+        }
+    }
+})

@@ -6,13 +6,20 @@
 </head>
 <body>
 <div th:fragment="control" class="control">
-  <h3>Monitor Control</h3>
-  <div id="monitor-banner"></div>
-  <input type="button" onclick="turnOff()" value="Turn Off"/>
-  <!--/*@thymesVar id="test" type="java.lang.String"*/-->
-  <!--/*@thymesVar id="keepOnState" type="java.lang.Boolean"*/-->
-  <label>Keep Off<input id="monitor-keepOff" type="checkbox" th:checkedstate="${keepOnState}" onclick="keepOff(this)"/></label>
-  <script src="/assets/scripts/monitor.js"></script>
+  <h3>Monitor Control <span class="noselect collapseButton" data-closing="monitor_panel">[-]</span></h3>
+  <div id="monitor_panel">
+    <div id="monitor-banner"></div>
+    <div id="monitor_buttons">
+      <input type="button" id="monitor_turnoff" class="button" value="Turn Off"/>
+      <!--/*@thymesVar id="test" type="java.lang.String"*/-->
+      <!--/*@thymesVar id="keepOnState" type="java.lang.Boolean"*/-->
+      <div>
+        <label for="monitor-keepOff">Keep Off</label>
+        <input id="monitor-keepOff" type="checkbox" th:checkedstate="${keepOnState}"/>
+      </div>
+      <script src="/assets/scripts/monitor.js"></script>
+    </div>
+  </div>
 </div>
 </body>
 </html>
