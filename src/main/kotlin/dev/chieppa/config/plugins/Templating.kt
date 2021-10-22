@@ -1,14 +1,10 @@
 package dev.chieppa.config.plugins
 
-import io.ktor.thymeleaf.Thymeleaf
-import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver
+import dev.chieppa.config.Release.DEV
+import dev.chieppa.config.config
 import io.ktor.application.*
-import io.ktor.http.content.*
-import org.thymeleaf.context.IWebContext
-import org.thymeleaf.standard.expression.StandardExpressionExecutionContext
-import org.thymeleaf.templatemode.TemplateMode
-import org.thymeleaf.templateparser.markup.decoupled.IDecoupledTemplateLogicResolver
-import org.thymeleaf.util.PatternSpec
+import io.ktor.thymeleaf.*
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver
 
 fun Application.configureTemplating() {
     install(Thymeleaf) {
@@ -16,6 +12,9 @@ fun Application.configureTemplating() {
             prefix = "templates/thymeleaf/"
             suffix = ".html"
             characterEncoding = "utf-8"
+            if (config.release == DEV) {
+                cacheTTLMs = 0
+            }
         })
     }
 }
