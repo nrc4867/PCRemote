@@ -7,6 +7,10 @@ import com.sksamuel.hoplite.fp.getOrElse
 import java.util.*
 import kotlin.io.path.Path
 
+enum class Release{
+    PROD, DEV
+}
+
 data class DatabaseConfig(
     val username: String,
     val password: Masked,
@@ -28,6 +32,7 @@ data class Bcrypt(val saltrounds: Int)
 data class Monitor(val keepOffRefresh: Int)
 
 data class Configuration(
+    val release: Release,
     val database: DatabaseConfig,
     val ktor: KtorServerConfig,
     val users: Users,

@@ -1,3 +1,5 @@
+release: PROD
+
 database:
   username: default-user
   password: default-password
