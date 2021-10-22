@@ -8,7 +8,11 @@
 <div th:fragment="control" class="control">
   <h3>Power Control <span class="noselect collapseButton" data-closing="shutdown_panel">[-]</span></h3>
   <div id="shutdown_panel">
-    <div id="shutdown-banner"></div>
+    <div id="shutdown_banner">
+      <div id="shutdown_timestamp" class="hidden"></div>
+      <div id="shutdown_exitcode" class="hidden"></div>
+      <pre id="shutdown_output" class="hidden"></pre>
+    </div>
     <div id="shutdown_buttons">
       <input type="button" class="button shutdown_button" id="shutdown_lock" value="Lock"/>
       <input type="button" class="button shutdown_button" id="shutdown_logout" value="Logout"/>

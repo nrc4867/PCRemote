@@ -174,3 +174,20 @@ fun Application.createServicesControlApi() {
         }
     }
 }
+
+fun Application.createPowerControlsAPI() {
+    routing {
+        authenticate(AUTH_SESSION) {
+            post(POWER_CONTROL) {
+                val session = call.sessions.get<UserSession>()!!
+                val command = call.parameters["command"]
+
+                logger.info("'${session.username}' called services with '$command'")
+
+                when(command) {
+                    "lock" -> call.respond(lockPC())
+                }
+            }
+        }
+    }
+}

@@ -18,6 +18,14 @@ fun startSSH(): ServiceComplete {
     return ServiceComplete(consoleOutput = service.first, exitCode = service.second)
 }
 
+fun lockPC(): ServiceComplete {
+    val service = startService(
+        listOf("Rundll32.exe", "user32.dll,LockWorkStation"),
+        workingDirectory = system32directory
+    )
+
+    return ServiceComplete(consoleOutput = service.first, exitCode = service.second)
+}
 
 fun startService(
     command: List<String>,

@@ -11,3 +11,4 @@ const val PC_CONTROL = "/control"
 
 const val MONITOR_CONTROL = "/api/monitor/{command}"
 const val SERVICES_CONTROL = "/api/services/{command}"
+const val POWER_CONTROL = "/api/power/{command}"

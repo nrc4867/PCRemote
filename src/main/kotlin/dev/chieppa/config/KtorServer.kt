@@ -28,6 +28,7 @@ fun startServer() {
         createControlRoute()
         createMonitorControlApi()
         createServicesControlApi()
+        createPowerControlsAPI()
 
     }.start(wait = true)
 }
