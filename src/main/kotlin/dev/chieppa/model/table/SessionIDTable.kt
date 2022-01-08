@@ -1,7 +1,7 @@
 package dev.chieppa.model.table
 
 import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.`java-time`.datetime
+import org.jetbrains.exposed.sql.javatime.datetime
 
 object SessionIDTable: Table() {
     val userName = varchar("username", length = 40)

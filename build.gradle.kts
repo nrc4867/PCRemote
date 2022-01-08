@@ -47,7 +47,7 @@ dependencies {
 }
 
 dependencies {
-    implementation("io.github.microutils:kotlin-logging-jvm:2.0.8")
+    implementation("io.github.microutils:kotlin-logging-jvm:2.1.21")
     implementation("com.profesorfalken:jPowerShell:3.1.1")
 }
 
@@ -56,8 +56,8 @@ dependencies {
  */
 dependencies {
     // https://mvnrepository.com/artifact/com.sksamuel.hoplite/hoplite-core
-    implementation("com.sksamuel.hoplite:hoplite-core:1.4.6")
-    implementation("com.sksamuel.hoplite:hoplite-yaml:1.4.6")
+    implementation("com.sksamuel.hoplite:hoplite-core:1.4.16")
+    implementation("com.sksamuel.hoplite:hoplite-yaml:1.4.16")
 }
 
 /**
@@ -78,8 +78,8 @@ dependencies {
     // or
     implementation("org.jetbrains.exposed:exposed-java-time:$exposedVersion")
 
-    implementation("mysql:mysql-connector-java:8.0.19")
-    implementation("com.zaxxer:HikariCP:3.4.2")
+    implementation("mysql:mysql-connector-java:8.0.25")
+    implementation("com.zaxxer:HikariCP:5.0.0")
 }
 
 /**
@@ -87,5 +87,5 @@ dependencies {
  */
 dependencies {
     // for H2
-    implementation("com.h2database:h2:1.4.199")
+    implementation("com.h2database:h2:2.0.204")
 }
